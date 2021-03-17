@@ -1,0 +1,16 @@
+<div class="container">
+    <div *ngIf="errorMessage">
+      <p>{{ errorMessage }}</p>
+    </div>
+    <div class="d-flex flex-wrap">
+      <app-pokemon-card
+        *ngFor="let pokemon of pokemonCatalogue"
+        [pokemon]="pokemon"
+      ></app-pokemon-card>
+    </div>
+    <button class="btn btn-primary" type="button" (click)="nextPage()">
+      Show more!
+    </button>
+    <p *ngIf="isLoading">Loading ...</p>
+  </div>
+  

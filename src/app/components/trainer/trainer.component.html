@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>Profile</h1>
+    <h2>Trainer name: {{ trainerName }}</h2>
+  
+    <div class="d-flex flex-wrap">
+      <app-pokemon-card
+        *ngFor="let pokemon of pokemonCatalogue"
+        [pokemon]="pokemon"
+      ></app-pokemon-card>
+    </div>
+  </div>
+  

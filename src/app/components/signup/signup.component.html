@@ -1,0 +1,20 @@
+<div class="container">
+    <img src="../../../assets/pokemon_logo.png" alt="Pokemon" />
+    <form [formGroup]="user" (submit)="signupUser()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">What is your Name?</label>
+        <input
+          name="name"
+          formControlName="name"
+          type="text"
+          class="form-control"
+        />
+        <div *ngIf="name.invalid && (name.dirty || name.touched)">
+          <p *ngIf="name.errors.required">Name is required</p>
+          <p *ngIf="name.errors.minlength">Name is too short</p>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  

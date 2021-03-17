@@ -1,0 +1,11 @@
+<div class="card" [routerLink]="['/catalogue/', pokemon.name]">
+    <img
+      [src]="pokemon.sprites ? pokemon.sprites.front_default : pokemon.url"
+      class="card-img-top"
+      alt=""
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ pokemon.name }}</h5>
+    </div>
+  </div>
+  

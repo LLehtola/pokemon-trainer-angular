@@ -1,0 +1,115 @@
+<div class="container">
+    <h1>{{ name }}</h1>
+    <div *ngIf="isLoading">
+      <h2>Loading pokemon</h2>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+    <div *ngIf="pokemon">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Base stats</h2>
+          <img
+            [src]="pokemon.sprites.other['official-artwork'].front_default"
+            class="card-img-top"
+            alt=""
+          />
+  
+          <ul class="list-group">
+            <li (click)="showTypes = !showTypes" class="list-group-item active">
+              Types:
+            </li>
+            <div *ngIf="showTypes">
+              <li
+                class="list-group-item"
+                *ngFor="let pokemontype of pokemon.types"
+              >
+                {{ pokemontype.type.name }}
+              </li>
+            </div>
+          </ul>
+          <ul class="list-group">
+            <li
+              (click)="showBaseStats = !showBaseStats"
+              class="list-group-item active"
+            >
+              Base stats:
+            </li>
+            <div *ngIf="showBaseStats">
+              <li class="list-group-item" *ngFor="let baseStat of pokemon.stats">
+                <p>
+                  {{ baseStat.stat.name }}:
+                  <span class="badge badge-primary badge-pill">{{
+                    baseStat.base_stat
+                  }}</span>
+                </p>
+              </li>
+            </div>
+          </ul>
+          <p>name: {{ pokemon.name }}</p>
+          <p class="text-justify">{{ this.flavourText }}</p>
+        </div>
+      </div>
+  
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Profile</h2>
+          <p>
+            Height:
+            <span class="badge badge-primary badge-pill">{{
+              pokemon.height
+            }}</span>
+          </p>
+          <p>
+            Weight:
+            <span class="badge badge-primary badge-pill">{{
+              pokemon.weight
+            }}</span>
+          </p>
+          <p>
+            Base experience:
+            <span class="badge badge-primary badge-pill">{{
+              pokemon.base_experience
+            }}</span>
+          </p>
+  
+          <ul class="list-group">
+            <li
+              (click)="showAbilities = !showAbilities"
+              class="list-group-item active"
+            >
+              Abilities:
+            </li>
+            <div *ngIf="showAbilities">
+              <li
+                class="list-group-item"
+                *ngFor="let ability of pokemon.abilities"
+              >
+                {{ ability.ability.name }}
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Moves:</h2>
+          <ul class="list-group">
+            <li (click)="showMoves = !showMoves" class="list-group-item active">
+              Moves:
+            </li>
+            <div *ngIf="showMoves">
+              <li class="list-group-item" *ngFor="let move of pokemon.moves">
+                {{ move.move.name }}
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" (click)="collectPokemon()" type="button">
+      Collect
+    </button>
+    <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  </div>
+  
