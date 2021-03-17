@@ -12,10 +12,10 @@ export class PokemonService {
 
   public async getPokemons(page: number): Promise<Pokemon[]> {
     try {
-      const regEx = /https:\/\/pokeapi.co\/api\/v2\/pokemon\/|\//g;
+      const regEx = 'https://pokeapi.co/api/v2/pokemon/';
       let pokemonListTemp = await this.http
         .get<Pokemon[]>(
-          `${environment.pokemonApiURL}pokemon/?limit=20&offset=${20 * page}`
+          `${environment.pokemonApiURL}pokemon/?limit=10&offset=${10 * page}`
         )
         .pipe(map((response: any) => response.results))
         .toPromise();
