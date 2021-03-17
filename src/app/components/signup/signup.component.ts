@@ -19,7 +19,6 @@ import { AuthService } from '../../services/auth.service';
 export class SignupComponent implements OnInit {
   user = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    gender: new FormControl('Boy', [Validators.required]),
   });
 
   get name(): AbstractControl {
