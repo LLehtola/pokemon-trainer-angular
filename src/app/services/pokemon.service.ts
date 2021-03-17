@@ -8,7 +8,15 @@ import { Pokemon } from '../models/pokemon.model';
   providedIn: 'root',
 })
 export class PokemonService {
-  constructor(private http: HttpClient) {}
+  apiUrl: string;
+
+  constructor(private http: HttpClient) {
+    this.apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
+  }
+
+  getPokemon(id: string): any {
+    return this.http.get(this.apiUrl + `${id}`);
+  }
 
   public async getPokemons(page: number): Promise<Pokemon[]> {
     try {
@@ -25,14 +33,14 @@ export class PokemonService {
         return {
           id: id,
           name: element.name,
-          url: `${environment.pokemonSpriteBaseUrl}/${id}.png`,
+          url: `${environment.pokemonSpriteUrl}/${id}.png`,
         };
       });
     } catch (error) {
       if (error.status > 400) {
-        throw new Error('server unavailable, try again later');
+        throw new Error('server unavailable, try again');
       } else {
-        throw new Error('something went horrible wrong');
+        throw new Error('something went wrong');
       }
     }
   }
@@ -53,7 +61,7 @@ export class PokemonService {
           for (let i = 0; i < response.flavor_text_entries.length; i++) {
             if (response.flavor_text_entries[i].language.name === 'en') {
               flavourText = response.flavor_text_entries[i].flavor_text.replace(
-                /\n|\f/g,
+                '/',
                 ' '
               );
               break;
