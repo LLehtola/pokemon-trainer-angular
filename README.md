@@ -1,5 +1,22 @@
 # PokemonTrainerAngular
 
+
+
+
+NOTES: On Pokemon details page did not complete types, base stats, abilities or moves.
+
+
+
+
+
+
+
+
+
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
 ## Development server
