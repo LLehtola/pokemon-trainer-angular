@@ -12,7 +12,7 @@ The application restricts user access to the Pokemon views until the user has en
 
 The application uses services to share data between components and make HTTP requests using the HttpClient.
 
-# Limitations of the application (project specifications that were not achieved)
+## Limitations of the application (project specifications that were not achieved)
 
 - Pokemon details view (displaying individual Pokemon's attributes) does not display types, base stats, abilities or moves.
 
