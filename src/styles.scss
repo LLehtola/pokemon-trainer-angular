@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+body,
+html,
+app-root {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100%;
+}
+
+app-login-home,
+app-pokemons-home,
+app-trainer-home,
+app-home,
+app-not-found {
+  flex: 1;
+}

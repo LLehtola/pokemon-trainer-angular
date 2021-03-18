@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
     return this.user.get('name');
   }
 
-  registerUser() {
+  signupUser() {
     if (!this.name.invalid) {
       this.authService.storeUserInLocalStorage(this.name.value);
     }
